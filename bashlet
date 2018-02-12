@@ -50,10 +50,10 @@ usage () {
 echo  "$THIS_NAME, by $THIS_AUTHOR
 
 usage: $THIS_NAME COMMAND
-This script automates the setup and maintenance of a kubernetes cluster
+This script is an exmple bash template
 e.g.
 
-kubash init
+bashlet echo 'hello world'
 "
   horizontal_rule
 echo '
@@ -93,6 +93,25 @@ bashlet echo 'hello world'
 
 options:
 
+ -v --verbose - be verbose
+ -h --help - Print usage
+'
+}
+
+parallel_echo_usage () {
+  horizontal_rule
+  # Print usage
+  echo '--
+usage: bashlet parallel_echo
+
+This command shows how to use gnu parallel
+e.g.
+
+bashlet --parallel 8 parallel_echo
+
+options:
+
+ --parallel NUMBER - utilize NUMBER of threads
  -v --verbose - be verbose
  -h --help - Print usage
 '
@@ -288,6 +307,10 @@ main () {
         echo_usage
         exit 1
     elif [[ $RAISON == "parallel_echo" ]]; then
+      if [[ $print_help == "true" ]]; then
+        parallel_echo_usage
+        exit 1
+      fi
       echo_in_parallel
     elif [[ $RAISON == "true" ]]; then
   	  squawk 8 'passthru'
