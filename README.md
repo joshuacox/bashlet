@@ -48,6 +48,22 @@ PARSED_OPTIONS=$(getopt -n "$0" -o "$short_opts" --long "$long_opts" -- "$@")
 
 There is also an example for making a task parallel using [GNU Parallel](https://www.gnu.org/software/parallel/)
 
+Try
+
+```
+./bashlet --parallel 8 parallel_echo 
+```
+
+```
+./bashlet --parallel 3 parallel_echo 
+```
+
+```
+./bashlet --parallel 1 parallel_echo 
+```
+
+and notice the different order they return in for each case
+
 ### Similar projects
 
 take a look at [b3bp](http://bash3boilerplate.sh/) or their github repo [here](https://github.com/kvz/bash3boilerplate)

@@ -155,13 +155,13 @@ my_echo () {
 
 echo_in_parallel () {
   PARATMP=$(mktemp -d --suffix='.para.tmp' 2>/dev/null || mktemp -d -t '.para.tmp')
-  echo 'master,10.1.1.10,admin,22,1' > $PARATMP/hosts.csv
-  echo 'etcd1,10.1.1.11,etcadmin,22,3' >> $PARATMP/hosts.csv
-  echo 'etcd2,10.1.1.12,etcadmin,22,1' >> $PARATMP/hosts.csv
-  echo 'etcd3,10.1.1.13,etcadmin,22,1' >> $PARATMP/hosts.csv
-  echo 'node1,10.1.1.14,nodeadmin,22,2' >> $PARATMP/hosts.csv
-  echo 'node2,10.1.1.15,nodeadmin,22,3' >> $PARATMP/hosts.csv
-  echo 'node3,10.1.1.16,nodeadmin,22,2' >> $PARATMP/hosts.csv
+  echo 'master,10.1.1.10,admin,22,7' > $PARATMP/hosts.csv
+  echo 'etcd1,10.1.1.11,etcadmin,22,6' >> $PARATMP/hosts.csv
+  echo 'etcd2,10.1.1.12,etcadmin,22,5' >> $PARATMP/hosts.csv
+  echo 'etcd3,10.1.1.13,etcadmin,22,4' >> $PARATMP/hosts.csv
+  echo 'node1,10.1.1.14,nodeadmin,22,3' >> $PARATMP/hosts.csv
+  echo 'node2,10.1.1.15,nodeadmin,22,2' >> $PARATMP/hosts.csv
+  echo 'node3,10.1.1.16,nodeadmin,22,1' >> $PARATMP/hosts.csv
 
   squawk 2 ' echo in parallel'
   csv_columns='host ip user port sleep'
